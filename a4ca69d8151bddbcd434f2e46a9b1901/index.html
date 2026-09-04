@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07101d"><title>PokéPulse Market Terminal</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon.svg">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="mark">P</div><div><b>POKÉPULSE</b><small>MARKET TERMINAL</small></div></div>
+  <div class="top-actions"><span id="feedState" class="state">● feeds offline</span><button id="theme">◐</button></div>
+</header>
+<main>
+<section class="command">
+  <div class="command-title"><span class="green">LIVE MARKET INTELLIGENCE</span><h1>Le terminal Pokémon pour comprendre le marché.</h1><p>Prix multi-sources, actualités, releases et signal agrégé — sans dépendre d'une seule marketplace.</p></div>
+  <div class="search"><input id="q" placeholder="Rechercher une carte : Umbreon, Charizard ex, Mew…"><button id="search">SEARCH</button></div>
+  <div class="quick"><button data-q="Umbreon">Umbreon</button><button data-q="Charizard">Charizard</button><button data-q="Pikachu">Pikachu</button><button data-q="Mew">Mew</button><button id="newsRefresh">↻ Actualiser les news</button></div>
+</section>
+
+<section class="ticker">
+  <div><span>MARKET</span><b id="marketCount">—</b></div>
+  <div><span>NEWS SIGNAL</span><b id="newsScore">—</b></div>
+  <div><span>RELEASES</span><b id="releaseCount">—</b></div>
+  <div><span>WATCHLIST</span><b id="watchCount">0</b></div>
+</section>
+
+<section class="layout">
+  <div class="maincol">
+    <div class="section-head"><div><span class="green">01 / MARKET SCANNER</span><h2>Cartes & valorisations</h2></div><select id="sort"><option value="trend">Prix</option><option value="name">Nom</option></select></div>
+    <div id="cards" class="cards"><div class="empty">Lance une recherche pour alimenter le terminal.</div></div>
+  </div>
+  <aside class="side">
+    <div class="section-head"><div><span class="green">02 / INTELLIGENCE FEED</span><h2>Release & flash info</h2></div></div>
+    <div id="news" class="news"><div class="empty">Chargement des signaux…</div></div>
+    <div class="source-note">Les articles sont synthétisés avec leur source. Un signal de news n'est jamais traité comme une transaction réelle.</div>
+  </aside>
+</section>
+</main>
+
+<div id="modal" class="modal hidden"><div class="modal-card">
+ <button id="close" class="close">×</button>
+ <div class="detail-grid">
+  <div><img id="heroImg"><button id="watch" class="watchbtn">☆ Watchlist</button></div>
+  <div>
+   <span id="dSet" class="green"></span><h2 id="dName"></h2><div class="badges" id="dBadges"></div>
+   <div class="metrics"><div><span>Cardmarket trend</span><b id="cmTrend">—</b></div><div><span>CM 30j</span><b id="cm30">—</b></div><div><span>TCGplayer</span><b id="tcg">—</b></div><div><span>Signal marché</span><b id="sig">—</b></div></div>
+   <div class="chartbox"><div class="charttop"><h3>Prix & observations</h3><button id="snap">＋ Snapshot</button></div><canvas id="chart"></canvas></div>
+   <div class="analysis"><h3>Synthèse multi-source</h3><p id="summary">—</p></div>
+  </div>
+ </div>
+</div></div>
+<footer>PokéPulse Market Terminal — données de marché et news clairement identifiées. Pokémon est une marque de The Pokémon Company.</footer>
+<script src="app.js"></script>
+</body></html>

@@ -1,0 +1,8 @@
+{
+  "name": "PokéPulse Market Terminal",
+  "short_name": "PokéPulse",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07101d",
+  "theme_color": "#07101d"
+}
